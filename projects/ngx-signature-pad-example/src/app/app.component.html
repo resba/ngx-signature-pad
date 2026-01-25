@@ -23,7 +23,10 @@
   <br>
 
   <div style="font-size: 20px">
-    <strong>State:</strong> {{ isEmpty ? 'Empty' : 'Filled' }} <span *ngIf="isTurnOn !== undefined">and Turned {{ isTurnOn ? 'On' : 'Off' }}</span>
+    <strong>State:</strong> {{ isEmpty ? 'Empty' : 'Filled' }}
+    @if (isTurnOn !== undefined) {
+      <span>and Turned {{ isTurnOn ? 'On' : 'Off' }}</span>
+    }
   </div>
 </div>
 
