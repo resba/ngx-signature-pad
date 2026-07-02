@@ -1,19 +1,20 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { SignaturePad } from 'ngx-signature-pad';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false
 })
 export class AppComponent {
   title = 'ngx-signature-pad-example';
 
-  @ViewChild('signaturePad') signaturePad: SignaturePad;
+  @ViewChild('signaturePad', { static: true }) signaturePad!: SignaturePad;
 
-  signature: string;
-  isTurnOn : boolean;
+  signature: string | null = null;
+  isTurnOn = false;
 
   readonly signaturePadOptions = { // passed through to szimek/signature_pad constructor
 		minWidth    : 0.5,			 // Line size

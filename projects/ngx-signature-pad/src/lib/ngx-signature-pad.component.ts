@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ElementRef, EventEmitter, Input, Output, OnDestroy } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, EventEmitter, Input, Output, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import * as SignaturePadNative from 'signature_pad';
 
 export interface Point {
@@ -12,6 +12,7 @@ export type PointGroup = Array<Point>;
 @Component({
     template: '<canvas></canvas>',
     selector: 'signature-pad',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SignaturePad implements AfterContentInit, OnDestroy {
@@ -45,6 +46,10 @@ export class SignaturePad implements AfterContentInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    if (!this.signaturePad) {
+      return;
+    }
+
     const canvas: any = this.elementRef.nativeElement.querySelector('canvas');
     canvas.width = 0;
     canvas.height = 0;
@@ -106,7 +111,7 @@ export class SignaturePad implements AfterContentInit, OnDestroy {
 
   // Returns true if canvas is empty, otherwise returns false
   public isEmpty(): boolean {
-    return this.signaturePad.isEmpty();
+    return this.signaturePad ? this.signaturePad.isEmpty() : true;
   }
 
   // Unbinds all event handlers

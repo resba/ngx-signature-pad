@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "esModuleInterop": true,
@@ -13,8 +12,8 @@
     "module": "es2020",
     "paths": {
       "ngx-signature-pad": [
-        "dist/ngx-signature-pad/ngx-signature-pad",
-        "dist/ngx-signature-pad"
+        "./dist/ngx-signature-pad/ngx-signature-pad",
+        "./dist/ngx-signature-pad"
       ]
     },
     "useDefineForClassFields": false

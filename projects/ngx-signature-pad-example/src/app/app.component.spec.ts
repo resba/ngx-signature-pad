@@ -1,9 +1,13 @@
 import { TestBed } from '@angular/core/testing';
+import { SignaturePadModule } from 'ngx-signature-pad';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        SignaturePadModule
+      ],
       declarations: [
         AppComponent
       ],
@@ -22,10 +26,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ngx-signature-pad-example');
   });
 
-  it('should render title', () => {
+  it('should render the signature pad', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ngx-signature-pad-example app is running!');
+    expect(compiled.querySelector('signature-pad')).toBeTruthy();
   });
 });

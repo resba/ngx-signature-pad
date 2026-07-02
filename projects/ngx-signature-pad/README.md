@@ -5,7 +5,7 @@ THIS IS A FORKED PROJECT FROM THE ORIGINAL REPO
 Angular component for [szimek/signature_pad](https://www.npmjs.com/package/signature_pad).
 
 ## Install
-`npm install @viablelogic/ngx-signature-pad`
+`npm install ngx-signature-pad-resba`
 
 ## Reference Implementation
 
@@ -25,7 +25,7 @@ The above options are provided to avoid accessing the DOM directly from your com
 
 // import into app module
 
-import { SignaturePadModule } from '@viablelogic/ngx-signature-pad';
+import { SignaturePadModule } from 'ngx-signature-pad-resba';
 
 ...
 
@@ -39,7 +39,7 @@ import { SignaturePadModule } from '@viablelogic/ngx-signature-pad';
 // then import for use in a component
 
 import { Component, ViewChild } from '@angular/core';
-import { SignaturePad } from '@viablelogic/ngx-signature-pad/signature-pad';
+import { SignaturePad } from 'ngx-signature-pad-resba/signature-pad';
 
 @Component({
   template: '<signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>'

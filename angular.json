@@ -119,7 +119,9 @@
           "builder": "@angular/build:karma",
           "options": {
             "main": "projects/ngx-signature-pad-example/src/test.ts",
-            "polyfills": "projects/ngx-signature-pad-example/src/polyfills.ts",
+            "polyfills": [
+              "projects/ngx-signature-pad-example/src/polyfills.ts"
+            ],
             "tsConfig": "projects/ngx-signature-pad-example/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-signature-pad-example/karma.conf.js",
             "assets": [
